@@ -1,5 +1,6 @@
 package me.davidllorca.trendingrepos.data.model.database;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -13,7 +14,7 @@ import me.davidllorca.trendingrepos.data.model.RepoEntry;
 public interface RepoDao {
 
     @Query("SELECT * FROM repo")
-    List<RepoEntry> loadFavouriteRepos();
+    LiveData<List<RepoEntry>> loadFavouriteRepos();
 
     @Insert
     void insertRepo(RepoEntry repoEntry);
